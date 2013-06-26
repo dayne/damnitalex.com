@@ -4,23 +4,24 @@ title: Dayne Broderson
 ---
 
 <div id="myCarousel" class="carousel slide">
-    <div class="carousel-inner">
+  <div class="carousel-inner">
     {% for post in site.posts %}
-      {% if forloop.index == 0 %}
-        <div class="item active">
+      {% if forloop.first %}
+        {% assign altclass = 'active' %}
       {% else %}
-        <div class="item">
+        {% assign altclass = '' %}
       {% endif %}
-        <img src="{{ page.image }}" alt="{{page.title}}">
+      <div class="item {{ altclass }}">
+        <img src="{{ post.image }}" alt="{{post.title}}">
         <div class="container">
           <div class="carousel-caption">
-            {{ page.content }}
+            {{ post.content }}
           </div>
-      </div>
+        </div>
       </div>
     {% endfor %}
-    </div>
+  </div>
 
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div>
