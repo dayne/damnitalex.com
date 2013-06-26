@@ -1,0 +1,6 @@
+---
+title: foggy
+image: /images/foggy.jpg
+---
+
+#### foggy ####
