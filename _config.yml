@@ -4,3 +4,4 @@ server: true
 pygments: true
 port: 4666
 title : Damn It Alex
+exclude: notes, .gitignore, Gemfile, Gemfile.lock, README.md
