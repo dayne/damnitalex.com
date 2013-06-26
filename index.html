@@ -3,6 +3,7 @@ layout: default
 title: Dayne Broderson
 ---
 
+<div class="container">
 <div id="myCarousel" class="carousel slide">
   <div class="carousel-inner">
     {% for post in site.posts %}
@@ -13,10 +14,9 @@ title: Dayne Broderson
       {% endif %}
       <div class="item {{ altclass }}">
         <img src="{{ post.image }}" alt="{{post.title}}">
-        <div class="container">
-          <div class="carousel-caption">
-            {{ post.content }}
-          </div>
+        <div class="carousel-caption">
+          <h1>{{ post.title }}</h1>
+          <p class="lead">{{ post.content }}</p>
         </div>
       </div>
     {% endfor %}
@@ -24,4 +24,5 @@ title: Dayne Broderson
 
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
   <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
 </div>

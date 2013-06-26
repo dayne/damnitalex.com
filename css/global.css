@@ -91,10 +91,11 @@
 
     .carousel-caption {
       background-color: transparent;
-      position: static;
+      position: absolute;
       max-width: 550px;
       padding: 0 20px;
-      margin-top: 200px;
+      top: 180px;
+      left: 60px;
     }
     .carousel-caption h1,
     .carousel-caption .lead {
