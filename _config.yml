@@ -1,4 +1,6 @@
 safe: true
 lsi: false
+server: true
 pygments: true
+port: 4666
 title : Damn It Alex
