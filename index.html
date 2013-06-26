@@ -1,0 +1,26 @@
+---
+layout: default
+title: Dayne Broderson
+---
+
+<div id="myCarousel" class="carousel slide">
+    <div class="carousel-inner">
+    {% for post in site.posts %}
+      {% if forloop.index == 0 %}
+        <div class="item active">
+      {% else %}
+        <div class="item">
+      {% endif %}
+        <img src="{{ page.image }}" alt="{{page.title}}">
+        <div class="container">
+          <div class="carousel-caption">
+            {{ page.content }}
+          </div>
+      </div>
+      </div>
+    {% endfor %}
+    </div>
+
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
