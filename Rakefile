@@ -7,7 +7,7 @@ require 'exifr'
 # Load the configuration file
 config = YAML.load_file("_config.yml")
 
-# rake post["Post title"]
+# rake image image=PATH_TO_ORIGINAL_IMAGE [title='something you want'] [blurb='a blurb']
 desc "Create a image post in _posts (rake image image='path/to/image' title='something' blurb='something else')"
 task :image do
   image     = ENV['image']
@@ -22,7 +22,14 @@ task :image do
   if image.nil? or image.empty?
     raise "Please select an image for your post"
   end
-  
+ 
+	target = File.join("images",File.basename(image))
+	if File.exists?(target)
+		raise "This image already in: #{target}"
+	end 
+
+	convert="convert #{image} -resize '940x500>' -size 940x500 xc:black +swap -gravity center  -composite #{target}"
+ 
   exifr = EXIFR::JPEG.new(image)
   date = exifr.date_time.strftime('%F')
   
@@ -38,7 +45,7 @@ task :image do
   content = <<-EOF
 ---
 title: #{title || 'Default title'}
-image: #{image}
+image: #{target}
 ---
 #{blurb || 'Default blurb'}
 EOF
