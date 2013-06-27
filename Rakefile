@@ -34,9 +34,17 @@ task :image do
 	end 
 
 	convert="convert #{image} -resize '940x500>' -size 940x500 xc:black +swap -gravity center  -composite #{target}"
+	system(convert)
  
-  exifr = EXIFR::JPEG.new(image)
-  date = exifr.date_time.strftime('%F')
+	begin
+  	exifr = EXIFR::JPEG.new(image)
+  	date = exifr.date_time.strftime('%F')
+	rescue 
+		puts "blew up getting EXIFR"
+		puts "setting time to now"
+		date = Time.now.strftime('%F')
+	end
+	
   
   if title.nil? or title.empty?
     name = File.basename(image, '.*')
