@@ -1,5 +1,5 @@
 ---
-image: images/2011-10-30-glasses.jpg
 title: Sexy Time
+image: images/2011-10-30-glasses.jpg
 ---
-Clearly Sexy
+Clearly

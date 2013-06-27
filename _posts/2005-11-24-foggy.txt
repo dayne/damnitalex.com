@@ -1,6 +1,5 @@
 ---
-title: foggy
+title: Science
 image: /images/foggy.jpg
 ---
-
-#### foggy ####
+He does it
