@@ -7,6 +7,11 @@ require 'exifr'
 # Load the configuration file
 config = YAML.load_file("_config.yml")
 
+desc "Default"
+task :default do
+	puts "\t rake image image=PATH_TO_ORIGINAL_IMAGE [title='something you want'] [blurb='a blurb']"
+end
+
 # rake image image=PATH_TO_ORIGINAL_IMAGE [title='something you want'] [blurb='a blurb']
 desc "Create a image post in _posts (rake image image='path/to/image' title='something' blurb='something else')"
 task :image do
