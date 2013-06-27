@@ -1,6 +1,5 @@
 ---
-title: nose
-image:/images/2010-02-12-nose.jpg
+title: Nose
+image: /images/2010-02-12-nose.jpg
 ---
-### Nose ###
 Smells it
