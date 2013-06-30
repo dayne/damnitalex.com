@@ -4,6 +4,8 @@ require 'yaml'
 require 'fileutils'
 require 'exifr'
 
+require 'highline/import'
+
 # Load the configuration file
 config = YAML.load_file("_config.yml")
 
@@ -15,10 +17,13 @@ end
 # rake image image=PATH_TO_ORIGINAL_IMAGE [title='something you want'] [blurb='a blurb']
 desc "Create a image post in _posts (rake image image='path/to/image' title='something' blurb='something else')"
 task :image do
-  image     = ENV['image']
+  image     = ENV['image'] 
   title     = ENV['title'] 
   blurb     = ENV['blurb']
   editor    = 'vim'
+
+	last_arg = ARGV.last
+	image = last_arg if File.file?(last_arg)
   
   # template  = config["post"]["template"]
   # extension = config["post"]["extension"]
@@ -41,16 +46,25 @@ task :image do
   	date = exifr.date_time.strftime('%F')
 	rescue 
 		puts "blew up getting EXIFR"
-		puts "setting time to now"
 		date = Time.now.strftime('%F')
+		if agree("Want to just manually set the date?")
+			date = ask("What date do you want to use (YYYY/MM/DD) : ", Date)
+		else 
+			puts "setting time to now"
+			date = Time.now.strftime('%F')
+		end
 	end
 	
+	if title.nil? or title.empty? and agree("want to provide your own title?")
+		title = ask("image title",String) { |q| q.confirm = true }
+	end
   
   if title.nil? or title.empty?
-    name = File.basename(image, '.*')
+		name = File.basename(image, '.*')
   else
     name = title
   end
+
   name = name.gsub(/(\'|\!|\?|\:|\s\z)/,"").gsub(/\s/,"-").downcase
   
   filename = "#{date}-#{name}.html"
