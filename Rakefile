@@ -89,3 +89,9 @@ EOF
     end
   end
 end
+
+desc "Automatically generate site for local dev"
+task :dev do
+  system("jekyll serve --watch")
+end
+
