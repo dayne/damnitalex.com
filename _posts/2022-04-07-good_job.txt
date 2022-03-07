@@ -1,5 +1,5 @@
 ---
 title: Good Job
-image: images/2022-04-good_job.jpg
+image: /images/2022-04-good_job.jpg
 ---
 Thanks Erica!

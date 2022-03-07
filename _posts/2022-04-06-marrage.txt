@@ -1,5 +1,5 @@
 ---
 title: Epic
-image: images/2022-04-epic.jpg
+image: /images/2022-04-epic.jpg
 ---
-Epic Success
+Success
