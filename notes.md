@@ -1,6 +1,0 @@
-
-
-
-The target image size is: 940x500
-
-   convert orig-image -resize "940x500>" -size 940x500 xc:black +swap -gravity center  -composite fixed_up_image.jpg
